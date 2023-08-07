@@ -6,7 +6,7 @@ void main() {
   var val1 = [1, 2, 3, "Shara"];
 
   List<int> lst1 = [2, 3, 4, 5, 6, 7];
-  List<int> lst2 = [8, 9, 10, 11, 12, 13]; //combining the list
+  List<int> lst2 = [7, 9, 10, 11, 12, 8]; //combining the list
   List<int> merge = [...lst1, ...lst2];
 
   var list = [10, 20, 30, 40, 50];
@@ -27,4 +27,7 @@ void main() {
 
   list.insert(0, 2);
   print(list); //inserting elements
+  
+  lst2.sort();
+  print(lst2);
 }

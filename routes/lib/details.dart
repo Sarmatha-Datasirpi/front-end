@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class DetailsScreen extends StatefulWidget {
   @override
@@ -6,6 +7,16 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
+  List<String> items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+  ];
+
+  List<String> selectedItems = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +24,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         title: Text('Details'),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -85,39 +96,81 @@ class _DetailsScreenState extends State<DetailsScreen> {
   void _showDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text('Dialog Title'),
-        content: GestureDetector(
-          onTap: () {
-            _showSnackBar(context);
-            Navigator.pop(context);
-          },
-          child: Text('Welcome To Datasirpi'),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text('Close'),
-          ),
-        ],
+      builder: (context) => StatefulBuilder(
+        builder: (context, setState) {
+          return AlertDialog(
+            title: Text('Select Items'),
+            content: Container(
+              width: double.maxFinite,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  final item = items[index];
+                  return CheckboxListTile(
+                    title: Text(item),
+                    value: selectedItems.contains(item),
+                    onChanged: (value) {
+                      setState(() {
+                        if (value!) {
+                          selectedItems.add(item);
+                        } else {
+                          selectedItems.remove(item);
+                        }
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Close'),
+              ),
+              TextButton(
+                onPressed: () {
+                  // Perform some action with the selected items
+                  if (selectedItems.isNotEmpty) {
+                    // Display the selected items in a toast
+                    Fluttertoast.showToast(
+                      msg: 'Selected items: ${selectedItems.join(", ")}',
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.black54,
+                      textColor: Colors.white,
+                    );
+                  }
+                  Navigator.pop(context);
+                },
+                child: Text('Save'),
+              ),
+            ],
+          );
+        },
       ),
-    );
+    ).then((value) {
+      // Clear selected items list after dialog is closed
+      selectedItems.clear();
+    });
   }
 
   void _performAction(BuildContext context) {
     // Add your desired action here, for example:
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Button clicked!'),
-      duration: Duration(seconds: 2),
-    ));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Button clicked!'),
+        duration: Duration(seconds: 2),
+      ),
+    );
   }
+}
 
-  void _showSnackBar(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Dialog text tapped!'),
-      duration: Duration(seconds: 2),
-    ));
-  }
+void main() {
+  runApp(MaterialApp(
+    home: DetailsScreen(),
+  ));
 }
