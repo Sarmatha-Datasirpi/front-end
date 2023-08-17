@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "947672721615",
+    "project_id": "oxy-food",
+    "storage_bucket": "oxy-food.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947672721615:android:94a2f91c1e8726b4f0afba",
+        "android_client_info": {
+          "package_name": "com.example.appstate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947672721615-r07fk0b2v99pme645d2dtadthf09n9mh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT1a754uF3AK8PEnP25tZVXKj3pfFRAg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947672721615-r07fk0b2v99pme645d2dtadthf09n9mh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947672721615:android:925b644041cc6b83f0afba",
+        "android_client_info": {
+          "package_name": "com.example.loginui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947672721615-r07fk0b2v99pme645d2dtadthf09n9mh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT1a754uF3AK8PEnP25tZVXKj3pfFRAg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947672721615-r07fk0b2v99pme645d2dtadthf09n9mh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947672721615:android:252d24eecf79e966f0afba",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947672721615-r07fk0b2v99pme645d2dtadthf09n9mh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT1a754uF3AK8PEnP25tZVXKj3pfFRAg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947672721615-r07fk0b2v99pme645d2dtadthf09n9mh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
